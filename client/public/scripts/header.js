@@ -23,7 +23,7 @@ const headerButton = document.createElement('button');
 const pathNow = window.location.pathname;
 
 var i = 0;
-const backgroundImage = ['url("/landpage_background.gif")', 'url("/landpage_background-2.jpg")', 'url("/landpage_background-3.png")', 'url("/landpage_background-4.jpg")'];
+const backgroundImage = ['url("../asset/landpage_background.gif")', 'url("../asset/landpage_background-2.jpg")', 'url("../asset/landpage_background-3.png")', 'url("../asset/landpage_background-4.jpg")'];
 // If on the root ("/"), call renderGifts
 if (pathNow === '/' || pathNow === '/index.html') {
   // var i = 0;
@@ -50,7 +50,7 @@ if (pathNow === '/' || pathNow === '/index.html') {
     });
   });
 } else {
-  header1.style.background = 'url("/premier-league-header.jpeg")';
+  header1.style.background = 'url("../asset/premier-league-header.jpeg")';
 
   header1.style.backgroundRepeat = "no-repeat";
   header1.style.backgroundSize = "100% 100%";
