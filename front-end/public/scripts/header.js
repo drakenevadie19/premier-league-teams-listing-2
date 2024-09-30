@@ -22,10 +22,11 @@ const headerButton = document.createElement('button');
 
 const pathNow = window.location.pathname;
 
+var i = 0;
 const backgroundImage = ['url("/landpage_background.gif")', 'url("/landpage_background-2.jpg")', 'url("/landpage_background-3.png")', 'url("/landpage_background-4.jpg")'];
 // If on the root ("/"), call renderGifts
 if (pathNow === '/' || pathNow === '/index.html') {
-  var i = 0;
+  // var i = 0;
   setInterval(() => {
     header1.style.background = backgroundImage[i];
 
@@ -35,7 +36,7 @@ if (pathNow === '/' || pathNow === '/index.html') {
     if (i === backgroundImage.length) {
       i = 0;
     }
-  }, 3000)
+  }, 2500)
   
 
   headerButton.textContent = 'Explore more!';
