@@ -3,6 +3,7 @@ const app = express();
 
 import teamsRouter from './routes/teams.js';
 
+import '../server/config/dotenv.js';
 
 app.use('/public', express.static('./public'));
 
