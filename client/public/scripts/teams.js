@@ -1,6 +1,8 @@
-const renderGifts = async () => {
+const renderTeamsList = async () => {
     const response = await fetch('/teams');
+    // console.log(response);
     const data = await response.json();
+    // console.log(data);
     // console.log("In rendering:");
     // console.log(data);
 
@@ -58,7 +60,7 @@ const renderGifts = async () => {
 //     renderGifts();
 // }
 
-const renderGift = async () => {
+const renderATeam = async () => {
     const headerArea = document.getElementById("header-div");
     headerArea.style.height = "40vh";
     headerArea.style.backgroundRepeat = "no-repeat";
@@ -120,11 +122,11 @@ const currentPath = window.location.pathname;
 
 // If on the root ("/"), call renderGifts
 if (currentPath === '/' || currentPath === '/index.html') {
-    renderGifts();
+    renderTeamsList();
 } 
 // If on a specific team page ("/teams/:teamId"), call renderGift
 else if (currentPath.startsWith('/teams/') && !isNaN(parseInt(currentPath.split('/').pop()))) {
-    renderGift();
+    renderATeam();
 } 
 // Redirect to 404 if the URL doesn't match the expected patterns
 else {

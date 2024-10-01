@@ -23,7 +23,7 @@ const headerButton = document.createElement('button');
 const pathNow = window.location.pathname;
 
 var i = 0;
-const backgroundImage = ['url("../asset/landpage_background.gif")', 'url("../asset/landpage_background-2.jpg")', 'url("../asset/landpage_background-3.png")', 'url("../asset/landpage_background-4.jpg")'];
+const backgroundImage = ['url("../asset/landpage_background-2.jpg")', 'url("../asset/landpage_background-3.png")', 'url("../asset/landpage_background-4.jpg")', 'url("../asset/landpage_background.gif")'];
 // If on the root ("/"), call renderGifts
 if (pathNow === '/' || pathNow === '/index.html') {
   // var i = 0;
