@@ -80,7 +80,7 @@ const renderATeam = async () => {
     // Fetching list of teams
     const data = await gettingAllTeams();
     console.log(data);
-    
+
     const mainContent = document.getElementById('team-lists');
     // mainContent.innerHTML = ''; // Clear content before appending new elements
 
@@ -141,4 +141,3 @@ else if (currentPath.startsWith('/teams/') && !isNaN(parseInt(currentPath.split(
 else {
     window.location.href = '/404.html';
 }
-
