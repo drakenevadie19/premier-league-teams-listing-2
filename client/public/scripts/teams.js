@@ -1,14 +1,20 @@
+import gettingAllTeams from "./data.js";
+
 const renderTeamsList = async () => {
-    const response = await fetch('/teams');
+    // const response = await fetch('/teams');
     // console.log(response);
-    const data = await response.json();
+    // const data = await response.json();
     // console.log(data);
     // console.log("In rendering:");
     // console.log(data);
 
+    // Fetching list of teams
+    const data = await gettingAllTeams();
+    console.log(data);
+
     const mainContent = document.getElementById('team-lists');
 
-    if (data) {
+    if (data && data.length > 0) {
         data.map((team) => {
             const card = document.createElement('div')
             card.classList.add('card')
@@ -43,8 +49,7 @@ const renderTeamsList = async () => {
             mainContent.appendChild(card)
 
         });
-    }
-    else {
+    } else {
         const message = document.createElement('h2')
         message.textContent = 'No Gifts Available 😞'
         mainContent.appendChild(message)
@@ -67,11 +72,15 @@ const renderATeam = async () => {
     headerArea.style.backgroundSize = "100% 100%";
 
     const requestedID = parseInt(window.location.pathname.split('/').pop());
-    const response = await fetch("/teams");
-    const data = await response.json();
+    // const response = await fetch("/teams");
+    // const data = await response.json();
     // console.log("In Script/Teams");
     // console.log(data);
-
+    
+    // Fetching list of teams
+    const data = await gettingAllTeams();
+    console.log(data);
+    
     const mainContent = document.getElementById('team-lists');
     // mainContent.innerHTML = ''; // Clear content before appending new elements
 
