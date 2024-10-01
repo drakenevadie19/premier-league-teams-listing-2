@@ -13,6 +13,11 @@ const renderTeamsList = async () => {
     console.log(data);
 
     const mainContent = document.getElementById('team-lists');
+    const filterInput = document.createElement('input');
+    filterInput.type = Text;
+    filterInput.name = "text";
+    filterInput.placeholder = "Text";
+    mainContent.appendChild(filterInput);
 
     if (data && data.length > 0) {
         data.map((team) => {
@@ -51,7 +56,7 @@ const renderTeamsList = async () => {
         });
     } else {
         const message = document.createElement('h2')
-        message.textContent = 'No Gifts Available 😞'
+        message.textContent = 'No Teams Listing Available 😞'
         mainContent.appendChild(message)
     }
 }
@@ -80,7 +85,7 @@ const renderATeam = async () => {
     // Fetching list of teams
     const data = await gettingAllTeams();
     console.log(data);
-    
+
     const mainContent = document.getElementById('team-lists');
     // mainContent.innerHTML = ''; // Clear content before appending new elements
 
@@ -141,4 +146,3 @@ else if (currentPath.startsWith('/teams/') && !isNaN(parseInt(currentPath.split(
 else {
     window.location.href = '/404.html';
 }
-

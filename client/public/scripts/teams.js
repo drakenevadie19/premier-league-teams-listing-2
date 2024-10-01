@@ -13,6 +13,13 @@ const renderTeamsList = async () => {
     console.log(data);
 
     const mainContent = document.getElementById('team-lists');
+    const filterInput = document.createElement('input');
+    filterInput.type = Text;
+    filterInput.name = "text";
+    filterInput.placeholder = "Team Name";
+    filterInput.style.backgroundColor = "#9DC6FF";
+    filterInput.style.color = "black";
+    mainContent.appendChild(filterInput);
 
     if (data && data.length > 0) {
         data.map((team) => {
@@ -51,7 +58,7 @@ const renderTeamsList = async () => {
         });
     } else {
         const message = document.createElement('h2')
-        message.textContent = 'No Gifts Available 😞'
+        message.textContent = 'No Teams Listing Available 😞'
         mainContent.appendChild(message)
     }
 }
