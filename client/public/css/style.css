@@ -84,7 +84,7 @@ main {
 
 .card {
   width: 300px;
-  height: max-content;
+  height: 500px;
   padding: 15px;
   background: transparent;
   border-style: solid;
@@ -96,6 +96,8 @@ main {
   margin-left: 20px;
   margin-right: 40px;
   margin-bottom: 60px;
+
+  position: relative;
 }
 
 .card img {
@@ -128,6 +130,9 @@ main {
 .bottom-container a {
   /* color: rgb(228, 16, 133); */
   text-decoration: none;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
 }
 
 /* 404 Page CSS */
