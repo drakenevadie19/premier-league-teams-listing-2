@@ -1,5 +1,12 @@
 import gettingAllTeams from "./data.js";
 
+const filterName = (name, data) => {
+    const result = data.filter(team => team.team_name.toLowerCase().startsWith(name.toLowerCase()));
+    // console.log("On Filtering");
+    // console.log(result)
+    return result;
+}
+
 const renderTeamsList = async () => {
     // const response = await fetch('/teams');
     // console.log(response);
@@ -9,68 +16,75 @@ const renderTeamsList = async () => {
     // console.log(data);
 
     // Fetching list of teams
-    const data = await gettingAllTeams();
-    console.log(data);
+    let data = await gettingAllTeams();
+    // console.log(data);
 
     const mainContent = document.getElementById('team-lists');
     const filterInput = document.createElement('input');
-    filterInput.type = Text;
+    filterInput.type = "text";
     filterInput.name = "text";
     filterInput.placeholder = "Team Name";
     filterInput.style.backgroundColor = "#9DC6FF";
     filterInput.style.color = "black";
     mainContent.appendChild(filterInput);
 
-    if (data && data.length > 0) {
-        data.map((team) => {
-            const card = document.createElement('div')
-            card.classList.add('card')
+    const renderTeams = (teams) => {
+        mainContent.innerHTML = "";  // Clear existing content
+        mainContent.appendChild(filterInput);  // Keep the filter input visible
 
-            const topContainer = document.createElement('div')
-            topContainer.classList.add('top-container')      
+        if (teams && teams.length > 0) {
+            // console.log("Out of filtering");
+            // console.log(data);
             
-            const bottomContainer = document.createElement('div')
-            bottomContainer.classList.add('bottom-container')
-
-            topContainer.style.backgroundImage = `url(${team.logo})`
-            topContainer.style.backgroundSize = "100% 100%"
-
-            const teamName = document.createElement('h3')
-            teamName.textContent = team.team_name
-            bottomContainer.appendChild(teamName)
-
-            const teamCity = document.createElement('p')
-            teamCity.textContent = team.city
-            teamCity.style.fontStyle = "italic"
-            bottomContainer.appendChild(teamCity)
-
-            const link = document.createElement('a')
-            link.textContent = 'Read More >'
-            link.setAttribute('role', 'button')
-            link.href = `/teams/${team.id}`
-            bottomContainer.appendChild(link)
-
-            card.appendChild(topContainer)
-            card.appendChild(bottomContainer)
-
-            mainContent.appendChild(card)
-
-        });
-    } else {
-        const message = document.createElement('h2')
-        message.textContent = 'No Teams Listing Available 😞'
-        mainContent.appendChild(message)
+            teams.map((team) => {
+                const card = document.createElement('div')
+                card.classList.add('card')
+    
+                const topContainer = document.createElement('div')
+                topContainer.classList.add('top-container')      
+                
+                const bottomContainer = document.createElement('div')
+                bottomContainer.classList.add('bottom-container')
+    
+                topContainer.style.backgroundImage = `url(${team.logo})`
+                topContainer.style.backgroundSize = "100% 100%"
+    
+                const teamName = document.createElement('h3')
+                teamName.textContent = team.team_name
+                bottomContainer.appendChild(teamName)
+    
+                const teamCity = document.createElement('p')
+                teamCity.textContent = team.city
+                teamCity.style.fontStyle = "italic"
+                bottomContainer.appendChild(teamCity)
+    
+                const link = document.createElement('a')
+                link.textContent = 'Read More >'
+                link.setAttribute('role', 'button')
+                link.href = `/teams/${team.id}`
+                bottomContainer.appendChild(link)
+    
+                card.appendChild(topContainer)
+                card.appendChild(bottomContainer)
+    
+                mainContent.appendChild(card)
+    
+            });
+        } else {
+            const message = document.createElement('h2')
+            message.textContent = 'No Teams Listing Available 😞'
+            mainContent.appendChild(message)
+        }
     }
-}
 
-// renderGifts();
-// const requestedUrl = window.location.href.split('/').pop();
-// console.log("requestURL: " + requestedUrl);
-// if (requestedUrl) {
-//     window.location.href = '../404.html'
-// } else {
-//     renderGifts();
-// }
+    renderTeams(data);
+
+    filterInput.addEventListener("input", (e) => {
+        const filteredData = filterName(e.target.value, data);
+        renderTeams(filteredData);
+    })
+    
+}
 
 const renderATeam = async () => {
     const headerArea = document.getElementById("header-div");

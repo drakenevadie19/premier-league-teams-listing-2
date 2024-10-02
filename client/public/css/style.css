@@ -1,5 +1,5 @@
 #header-div {
-  height: 100vh;
+  height: 97vh;
   width: 100%;
   background: url("../asset/landpage_background.gif");
   background-size:  100% 100%;
@@ -84,7 +84,8 @@ main {
 
 .card {
   width: 300px;
-  height: 400px;
+  height: max-content;
+  padding: 15px;
   background: transparent;
   border-style: solid;
   border-width: 3px;
@@ -116,14 +117,16 @@ main {
 .bottom-container h3 {
   margin-top: 10px;
   margin-bottom: 6px;
+  color: black;
 }
 
 .bottom-container p {
   margin: 2px;
+  color: gray;
 }
 
 .bottom-container a {
-  color: rgb(228, 16, 133);
+  /* color: rgb(228, 16, 133); */
   text-decoration: none;
 }
 
