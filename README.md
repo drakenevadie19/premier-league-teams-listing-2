@@ -28,7 +28,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/g04ug9O.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+In case the imgur link does not work
+<img src='./Project 2 demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Here is an image of Postgre database
 <img src='./Database-image.png' title='Postgre' width='' alt='Postgre' />

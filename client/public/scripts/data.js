@@ -1,6 +1,8 @@
 const gettingAllTeams = async () => {
     try {
         const response = await fetch('/teams');
+        // console.log("response");
+        // console.log(response)
         // console.log("Fetching all teams");
         const data = await response.json();
         // console.log(data);

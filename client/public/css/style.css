@@ -187,3 +187,11 @@ body {
   background-color: #D2E0FB;
   padding: 10px;
 }
+
+.teams-details h2 {
+  color: black;
+}
+
+.teams-details p {
+  color: black;
+}
